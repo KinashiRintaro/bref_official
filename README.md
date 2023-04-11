@@ -27,3 +27,14 @@ docker-compose up
 ```
 
 The application is then available at [http://localhost:8000/](http://localhost:8000/).
+
+## PRの状態を再現する手順
+```
+composer require bref/bref bref/laravel-bridge
+
+cp .env.example .env
+
+composer dump-autoload
+
+docker-compose up -d --build
+```
