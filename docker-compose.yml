@@ -3,10 +3,13 @@ version: '3.5'
 services:
   web:
     image: bref/php-81-fpm-dev:2
-    ports: [ '8000:8000' ]
+    ports: [ '8100:8000' ]
     volumes:
       - .:/var/task:ro
     environment:
       HANDLER: public/index.php
       DOCUMENT_ROOT: public
       APP_KEY: 'base64:/EStlF5sExBpWdQ3eB/h+F2zzKGDc5bvDzwe0KD8ZPg='
+      # HANDLER: test/test.php
+      # DOCUMENT_ROOT: test
+      # APP_KEY: 'base64:/EStlF5sExBpWdQ3eB/h+F2zzKGDc5bvDzwe0KD8ZPg='
