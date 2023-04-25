@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // dd("aa");
     // throw new \Exception("エラーです");
-    abort(404);
+    // abort(404);
     return view('welcome');
 });

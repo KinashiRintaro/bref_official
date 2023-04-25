@@ -6,6 +6,7 @@ services:
     ports: [ '8100:8000' ]
     volumes:
       - .:/var/task:ro
+      - ./storage:/tmp/storage
     environment:
       HANDLER: public/index.php
       DOCUMENT_ROOT: public
