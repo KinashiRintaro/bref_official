@@ -5,12 +5,23 @@ services:
     image: bref/php-81-fpm-dev:2
     ports: [ '8100:8000' ]
     volumes:
-      - .:/var/task:ro
+      - .:/var/task
       - ./storage:/tmp/storage
     environment:
       HANDLER: public/index.php
       DOCUMENT_ROOT: public
       APP_KEY: 'base64:/EStlF5sExBpWdQ3eB/h+F2zzKGDc5bvDzwe0KD8ZPg='
-      # HANDLER: test/test.php
-      # DOCUMENT_ROOT: test
-      # APP_KEY: 'base64:/EStlF5sExBpWdQ3eB/h+F2zzKGDc5bvDzwe0KD8ZPg='
+
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root!password?
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - "TZ=Asia/Tokyo"
+    volumes:
+      - db-store:/var/lib/mysql
+
+volumes:
+  db-store:
